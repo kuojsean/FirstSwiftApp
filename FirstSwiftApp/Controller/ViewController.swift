@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController
 {
     @IBOutlet weak var firstButton: UIButton!
+    private lazy var color: ColorTools = ColorTools()
     
     override func viewDidLoad()
     {
@@ -28,19 +29,10 @@ class ViewController: UIViewController
         {
             firstButton.backgroundColor = .orange
         }
-        view.backgroundColor = createRandomColor()
+        view.backgroundColor = color.createRandomColor()
     }
     
-    private func createRandomColor() -> UIColor
-    {
-        let newColor :UIColor
-        let redAmount = CGFloat (Double (arc4random_uniform(256))/255.00)
-        let greenAmount = CGFloat (Double (arc4random_uniform(256))/255.00)
-        let blueAmount = CGFloat (Double (arc4random_uniform(256))/255.00)
-        newColor = UIColor(red: redAmount, green: greenAmount, blue: blueAmount, alpha: CGFloat(1.0))
-        
-        return newColor
-    }
+    
     
     override func didReceiveMemoryWarning()
     {
